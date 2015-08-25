@@ -1,0 +1,9 @@
+<% if logged_in? %>
+	<%= link_to "Sign out", signout_path, method: "delete" %>
+<% else %>
+	<%= link_to "Sign in", signin_path %>
+<% end %>
+
+<%= render @users %>
+
+<%= link_to "If you don't have an account: Sign up now!", signup_path %>
