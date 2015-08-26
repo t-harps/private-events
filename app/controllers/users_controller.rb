@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
-      log_in @user
+      sign_in @user
       redirect_to root_path
   	else
   	  render 'new'
@@ -18,10 +18,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @events = Event.all
   end
 
   private
     def user_params
-  	  params.require(:user).permit(:name, :email, :password)	 							 
+  	  params.require(:user).permit(:name, :email, :password_digest)	 							 
   	end
 end

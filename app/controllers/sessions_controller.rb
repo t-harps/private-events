@@ -3,20 +3,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	user = User.find_by(name: params[:session][:name].downcase)
+  	user = User.find_by(name: params[:session][:name])
   	if user
   	  sign_in user
-      #flash[:success] = 'You have logged in'
+      flash[:success] = 'You have logged in'
       redirect_to root_path
     else
-      #flash.now[:danger] = 'Invalid email/password combo'
+      flash.now[:danger] = 'Invalid name combo'
       render 'new'
     end
   end
 
   def destroy
   	sign_out
-  	#flash[:success] = 'You have logged out'
+  	flash[:success] = 'You have logged out'
   	redirect_to root_path
   end
 end

@@ -1,9 +1,10 @@
 <% if logged_in? %>
-	<%= link_to "Sign out", signout_path, method: "delete" %>
+	<%= link_to "Sign out", signout_path, method: "delete" %> <br>
+	<%= link_to "Create new event", new_event_path %> <br>
 <% else %>
-	<%= link_to "Sign in", signin_path %>
+	<%= link_to "Sign in", signin_path %> <br>
+	<%= link_to "If you don't have an account: Sign up now!", signup_path %><br>
 <% end %>
 
 <%= render @users %>
 
-<%= link_to "If you don't have an account: Sign up now!", signup_path %>
