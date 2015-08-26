@@ -1,0 +1,12 @@
+<%= link_to "Create User", signup_path %>
+<%= link_to "Events", events_path %>
+<%= link_to "Users", users_path %>
+
+<% if logged_in? %>
+    <%= link_to "Profile Page", current_user %>
+	<%= link_to "Sign out", signout_path, method: "delete" %>
+	<%= link_to "Create new event", new_event_path %> 
+<% else %>
+	<%= link_to "Sign in", signin_path %> 
+<% end %>
+<br>

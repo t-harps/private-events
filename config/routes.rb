@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  root             'users#index'
+  root             'events#index'
 
   get 'signin'  => 'sessions#new'
   delete 'signout' => 'sessions#destroy'

@@ -3,6 +3,8 @@ class EventsController < ApplicationController
 
   def index
   	@events = Event.all
+    @upcoming_events = Event.upcoming
+    @past_events = Event.past
   end
 
   def new
@@ -26,7 +28,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name, :location)	
+      params.require(:event).permit(:name, :location, :date)	
     end
 
     def sign_in

@@ -1,6 +1,19 @@
 <p> Name: <%= @user.name %></p>
 
 <p> Email: <%= @user.email %></p>
-<p><%= @user.name %>'s Events:</p>
-<%= render @events %>
+
+<% if @events.any? %>
+  <p><%= @user.name %>'s created events:</p>
+  <%= render 'shared/table', object: @events %>
+<% end %>
+
+<% if @past_events.any? %>
+  <p><%= @user.name %>'s attended past events:</p>
+  <%= render 'shared/table', object: @past_events %>
+<% end %>
+
+<% if @upcoming_events.any? %>
+  <p><%= @user.name %>'s attended upcoming events:</p>
+  <%= render 'shared/table', object: @upcoming_events %>
+<% end %>
 

@@ -1,4 +1,9 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<% if @past_events.any? %>
+  <p> Past events: </p>
+  <%= render 'shared/table', object: @past_events %>
+<% end %>
 
-<%= render @events %>
+<% if @upcoming_events.any? %>
+  <p> Upcoming events: </p>
+  <%= render 'shared/table', object: @upcoming_events %>
+<% end %>

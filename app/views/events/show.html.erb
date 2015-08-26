@@ -1,8 +1,13 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
-
 <p> Creator: <%= @event.creator.name %></p>
 
 <p> Event name: <%= @event.name %></p>
 
 <p> Location: <%= @event.location %></p>
+
+<p> Date and time: <%= @event.date %></p>
+
+<p> Attendents: 
+	<% @event.attendees.each do |x| %>
+		<li> <%= x.name %> </li>
+	<% end %>
+</p>

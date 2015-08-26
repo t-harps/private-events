@@ -1,5 +1,5 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+
+<p>Create a new Event</p>
 
 <%= form_for @event do |f| %>
 
@@ -8,6 +8,9 @@
 
   <%= f.label :location %>
   <%= f.text_field :location %><br>
+
+  <%= f.label :date %>
+  <%= f.datetime_select :date %><br>
 
   <%= f.submit "Create" %>
 <% end %>
