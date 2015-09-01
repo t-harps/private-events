@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
       sign_in @user
+      UserMailer.welcome_email(@user).deliver_now
       redirect_to root_path
   	else
   	  render 'new'
